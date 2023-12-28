@@ -1,0 +1,84 @@
+/* Add this style to your existing CSS */
+
+/* .image-animation {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 140px; 
+    width: 240px; 
+    animation: moveImage 5s linear infinite alternate;
+} */
+
+.text-div{
+    position: absolute;
+    top: 25%;
+    left: 25vw;
+    /* z-index: 1; */
+}
+
+.image-animation {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 140px; 
+    width: 240px; 
+    animation: moveImage 5s linear infinite;
+}
+
+.background-image {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    overflow: hidden;
+}
+
+.background-image img {
+    position: absolute;
+    top: -10%;
+    opacity: 0.2;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; 
+}
+
+.background-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:transparent
+}
+
+.full-width-image {
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+  }
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 160px; 
+}
+
+/* @keyframes moveImage {
+    from {
+        transform: translateX(-300%);
+    }
+    to {
+        transform: translateX(180%);
+    }
+} */
+
+@keyframes moveImage {
+    0% {
+        transform: translateX(-300%);
+    }
+    100% {
+        transform: translateX(180%);
+    }
+}
