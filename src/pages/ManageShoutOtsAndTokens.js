@@ -80,29 +80,26 @@ const ManageSubscriptions = () => {
                         <div className="card">
                         <Accordion>
                             <div style={{ height: "200px" }}></div>
-                            {myListedFunctions.map((func, index) => (
-                            <AccordionTab key={index} header={`function name: ${func.title}`}>
+                            <AccordionTab header={`function name: `}>
                                 <p className="m-0">
-                                    Function Address: {func.functionAddress}
+                                    Function Address: 
                                 </p>
                                 <p className="m-0">
-                                    Your wallet Address: {func.creatorAddress}
+                                    Your wallet Address: 
                                 </p>
                             </AccordionTab>
-                            ))}
+                        
                         </Accordion>        
                     </div>
                     </TabPanel>
 
                     <TabPanel header="Subscribed">
                         <Accordion >
-                            {subscribers.map((func, index) => (
-                                <AccordionTab key={index} header={`function name: ${func.FunctionName}`}>
+                                <AccordionTab  header={`function name: `}>
                                     <p className="m-0">
-                                        Function address: {func.FunctionAddress}
+                                        Function address: 
                                     </p>
                                 </AccordionTab>
-                                ))}
                                 <div style={{height:"200px"}}></div>
                         </Accordion>
                         {/* <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} headerTemplate={header} readOnly style={{ height: '220px' }}/> */}

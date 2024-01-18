@@ -11,9 +11,12 @@ import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import Blockies from 'react-blockies'; 
 import { Toast } from 'primereact/toast';
+import {Panel} from 'primereact/panel'
+import { ScrollPanel } from 'primereact/scrollpanel';
 
 import Lottie from 'lottie-react';
 import live from '../components/assets/Animation - 1701427585713.json'
+import animation from '../components/assets/Live-Animation.json'
 
 import { AddressArray } from '../models/subscriber_address_model';
 import { AppStateService } from '../Appstate-sevice/AppState.service';
@@ -41,13 +44,13 @@ const ViewFullInfo = () => {
             console.log("");
             toast.current.show({severity:'warn', summary: 'Can\'t subscribe', detail:'Please fill in your address to subscribe', life: 3000});
         }else{
-            const db_values = {
-                FunctionAddress: data.functionAddress,
-                SubscriberAddress: walletAddress.toLowerCase(),
-                FunctionName: data.title,
-            }
-            service.createSubscriber(db_values)
-            toast.current.show({severity:'info', summary: 'Subscribed', detail:'Subscription successfull', life: 3000});
+            // const db_values = {
+            //     FunctionAddress: data.functionAddress,
+            //     SubscriberAddress: walletAddress.toLowerCase(),
+            //     FunctionName: data.title,
+            // }
+            // service.createSubscriber(db_values)
+            toast.current.show({severity:'info', summary: 'Subscribed', detail:'Subscription funtionality under construction', life: 3000});
             setVisible(false);
         }
     }
@@ -63,6 +66,21 @@ const ViewFullInfo = () => {
             <span className="ql-formats">
                 <button className="ql-code" aria-label="Code"></button>
             </span>
+        );
+    };
+
+    const footerTemplate = (options) => {
+        const className = `${options.className} flex flex-wrap align-items-center justify-content-between gap-3`;
+
+        return (
+            <div className={className}>
+                <div className="flex align-items-center gap-2">
+                    <Button icon="pi pi-user" rounded text tooltip="Button funtionality under construction"></Button>
+                    <Button icon="pi pi-bookmark" severity="secondary" rounded text tooltip="Button functionality under construction"></Button>
+                </div>
+                
+                <span className="p-text-secondary"> article approved</span>
+            </div>
         );
     };
 
@@ -91,8 +109,8 @@ const ViewFullInfo = () => {
 
         <div style={{height:"52px"}}></div>
 
-        <div className="flex flex-wrap gap-1 md:gap-4 xl:gap-25">
-            <Card title="number of subscribers " className='shadow-6 w-20rem' style={{height:"420px"}}>
+        <div className="flex align-items-center justify-content-center">
+            {/* <Card title="number of subscribers " className='shadow-6 w-20rem' style={{height:"420px"}}>
                 <ul className="list-none p-0 m-0 flex-grow-1">
                 <li className="flex align-items-center mb-3">
                         <i className="pi pi-eye text-primary-500 mr-2"></i>
@@ -108,24 +126,30 @@ const ViewFullInfo = () => {
                     ))}
                             
                 </ul>
-            </Card>
+            </Card> */}
 
-            <Card className='shadow-5' style={{width:'70%'}} title={`Function Name: ${data.title}`}>
-            <span className="block text-2xl font-bold mb-1">Author: {data.author}</span>
+            <Card className='shadow-5' style={{width:'70%'}}>
+            
             <div className="card">
             <TabView>
-                <TabPanel header="Details">
-                    <p className="m-0">
-                        {data.long_details}
-                    </p>
-                    <span className='felx justify-content-center align-items-center'>Rating  :<Rating value={5} readOnly cancel={false}  className='pl-8 pb-3'/></span>
+                <TabPanel header="Full article">
+                    <Card title={`Article Author: ${data.articleAuthor}`}>
+                        <Divider/>
+                        <Panel header={`${data.articleTile}`} toggleable footer={footerTemplate}>
+                            <ScrollPanel pt={{barY:{className: "bg-primary"}}}  style={{ width: '100%', height: '200px' }} className="custombar1 ">
+                                {data.articleContent}
+                            </ScrollPanel>
+                        </Panel>
+                    </Card>
+                    
+                    <span className='felx justify-content-center align-items-center'><Rating value={5} readOnly cancel={false}  /></span>
                 </TabPanel>
-                <TabPanel header="Usage">
+                <TabPanel header="Additional info">
                     <Editor value={usage} headerTemplate={header} readOnly style={{ height: '220px' }}/>
                 </TabPanel>
 
             </TabView>
-        </div>
+            </div>
             <div style={{height:"20px"}}></div>
             <Button  severity='primary'
              onClick={() => {

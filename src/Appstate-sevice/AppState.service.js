@@ -20,14 +20,14 @@ export class AppStateService {
         this.userAddress = []
 
         const db = new Polybase({
-            defaultNamespace: "pk/0xbd242ce427525d219c617b9856f0052b52334321d47d1793a7653cab5b2dac45792735a33e4b2789cbf8063555816d8a37226f8b393645c78244c175a010fbed/Rapid.Oracle",
+            defaultNamespace: "pk/0xbd242ce427525d219c617b9856f0052b52334321d47d1793a7653cab5b2dac45792735a33e4b2789cbf8063555816d8a37226f8b393645c78244c175a010fbed/GuardianQuill",
           });
         
           const subscriberDB = new Polybase({
             defaultNamespace: "pk/0xbd242ce427525d219c617b9856f0052b52334321d47d1793a7653cab5b2dac45792735a33e4b2789cbf8063555816d8a37226f8b393645c78244c175a010fbed/subscriptionHandler",
           });
         this.nextPolybaseRecordID = null;
-        this.collectionReference = db.collection('RapidOracleDb');
+        this.collectionReference = db.collection('GuardianQuill');
 
         // this.contractPendingProjects = [];
         this.liveFunctions = [];
@@ -42,7 +42,7 @@ export class AppStateService {
                 h: 'eth-personal-sign',
                 sig: await auth.ethPersonalSign(data)
         }});
-        this.collectionReference = db.collection('RapidOracleDb');
+        // this.collectionReference = db.collection('RapidOracleDb');
 
         subscriberDB.signer(async (data) => {
             return {
@@ -114,7 +114,7 @@ export class AppStateService {
                 temp.push(element.data);
             });
     
-            console.log(temp[0].author);
+            // console.log(temp[0].author);
             console.log("length: ", temp.length);
             this.polybaseResponse = temp;
             return temp;
@@ -129,13 +129,9 @@ export class AppStateService {
         let id = this.generatePolybaseID()
         await this.collectionReference.create([
             id,
-            projectObject.title,
-            projectObject.author,
-            projectObject.short_details,
-            projectObject.long_details,
-            projectObject.usage,
-            projectObject.functionAddress,
-            projectObject.creatorAddress
+            projectObject.articleTile,
+            projectObject.articleAuthor,
+            projectObject.articleContent,
         ])
     }
 

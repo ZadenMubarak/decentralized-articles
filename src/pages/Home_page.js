@@ -33,7 +33,7 @@ const HomePage = () => {
         <div >
             <div className="flex flex-column">
             <div className='background-image' style={{fontFamily: "Silkscreen, serif"}} >
-                    <img src={celeb} alt='' className='BackGround-image'/>
+                    <img src={'https://cdn.leonardo.ai/users/c542c8fd-7058-45bb-b6e0-61ab8db6c01a/generations/6198ac91-d5ef-499f-99bc-2e190b9711e1/Leonardo_Diffusion_XL_create_an_image_for_a_decentralised_news_0.jpg'} alt='' className='BackGround-image'/>
                 </div>
                 <div className='text-div'>
 
@@ -42,7 +42,10 @@ const HomePage = () => {
                     </div>
 
                     <div className="flex align-items-center justify-content-center h-4rem font-bold border-round m-2">
-                        <div className="text-6xl text-primary font-bold mb-3">Tokenised Shout outs</div>
+                        <p className="text-6xl text-primary font-bold mb-3">Tokenised News articles</p>
+                    </div>
+                    <div className="flex align-items-center justify-content-center h-4rem font-bold border-round m-2">
+                        <div className="mt-0 mb-4 text-700 line-height-3 text-help-700 font-bold mb-3">list your articles and let GuardianQuill do the rest </div>
                     </div>
                     <div className="flex align-items-center justify-content-center h-4rem font-bold border-round m-2">
                         <Button label="Launch App" type="button" className="mr-3 p-button-raised" onClick={()=> navigate('/view-functions-cards')}/>
@@ -54,18 +57,7 @@ const HomePage = () => {
             <div className="">
                 {/* <Lottie animationData={animationData} style={{zIndex:"-1"}}/> */}
             </div>
-            <Divider/>
-          <div style={{height:"80px"}}></div>
-          <div id='how-it-works'>
-
-            <div className='flex align-items-center justify-content-center card'>
-
-            <Card title="How it works" className='shadow-6' style={{width:"98%"}}>
-              <Timeline value={events} align="alternate" content={(item) => item.status}  marker={customizedMarker}/>
-            </Card>
-            </div>
-
-          </div>
+ 
         </div>
     
 

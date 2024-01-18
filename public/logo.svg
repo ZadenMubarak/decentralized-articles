@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Blockchain Blocks -->
+  <rect x="20" y="40" width="40" height="40" fill="#3498db" />
+  <rect x="80" y="40" width="40" height="40" fill="#3498db" />
+  <rect x="140" y="40" width="40" height="40" fill="#3498db" />
+
+  <!-- AI Brain -->
+  <path d="M100 120c-10 0-20-5-30-12l10-20c5 3 10 5 15 5s10-2 15-5l10 20c-10 7-20 12-30 12z" fill="#e74c3c" />
+
+  <!-- Connecting Lines -->
+  <line x1="40" y1="80" x2="80" y2="60" stroke="#2ecc71" stroke-width="2" />
+  <line x1="80" y1="60" x2="120" y2="80" stroke="#2ecc71" stroke-width="2" />
+  <line x1="120" y1="80" x2="160" y2="60" stroke="#2ecc71" stroke-width="2" />
+
+  <!-- Text -->
+  <text x="50%" y="170" text-anchor="middle" font-family="Arial" font-size="16" fill="#333">Blockchain AI</text>
+</svg>

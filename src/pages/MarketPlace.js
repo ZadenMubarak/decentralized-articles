@@ -10,6 +10,7 @@ import { market_card } from '../models/market_card_model';
 import { Badge } from 'primereact/badge';
 
 import { AppStateService } from '../Appstate-sevice/AppState.service';
+import { articleInfo } from '../models/articleInfoModel';
 
 const ChipList = ({ itemsArray }) => {
   const navigate = useNavigate();
@@ -53,20 +54,15 @@ const ViewCards = () => {
   const navigate = useNavigate();
 
   const itemsArray = service.polybaseResponse;
-  const Subscribed = service.sunscribersResponse;
+  const articleArray = articleInfo;
+  console.log('polypase response', itemsArray);
 
   return (
     <div className="p-grid p-justify-center">
       <div className="bg-bluegray-900 text-gray-100 p-3 flex justify-content-between lg:justify-content-center align-items-center flex-wrap cursor-pointer">
         <div className="font-bold mr-8">🔥 Popular tokens !</div>
         <div className="align-items-center hidden lg:flex flex flex-wrap gap-2">
-
-          {/* <Chip label="Popular" />
-          <Chip label="popular" />
-          <Chip label="popular" /> */}
-
           <ChipList itemsArray={itemsArray} />
-
         </div>
       </div>
       <div style={{ height: '30px' }}></div>
@@ -87,36 +83,31 @@ const ViewCards = () => {
 
       <div className="flex justify-content-center flex-wrap gap-6">
 
-      {itemsArray.map((items, index) => (
-                  <React.Fragment key={index}>
-                  <Card className="w-20rem">
-                    <Blockies scale={8} spotColor='#000' color='#dfe' seed={items.title} size={36} />
-                    <Divider />
-      
-                    <span className="block text-2xl font-bold mb-1">{items.title}</span>
-                    <Divider />
-      
-                    <div>{items.author}</div>
-                    <div style={{ height: '8px' }}></div>
-                    <div>Bid Amount starting: </div> <span className="text-cyan-500">200</span>
-                    <div style={{ height: '8px' }}></div>
-                    <div>Increment by: </div> <span className="text-cyan-500"> X4</span>
-                    <div style={{ height: '8px' }}></div>
-                    <div>{items.short_details}</div>
-                    <Divider />
-                    <Button
-                      style={{ width: '100%' }}
-                      label="open"
-                      severity="primary"
-                      size="medium"
-                      onClick={() => {
-                        navigate('/view-functions-fully', { state: { ...items } });
-                      }}
-                    />
-                    <div style={{ height: '30px' }}></div>
-                  </Card>
-                </React.Fragment>
-      ))}
+        {articleArray.map((items, index) => (
+                    <React.Fragment key={index}>
+                    <Card className="w-20rem">
+                      <Blockies scale={8} spotColor='#000' color='#dfe' seed={items.articleTile} size={36} />
+                      <Divider />
+        
+                      <span className="block text-2xl font-bold mb-1">{items.articleTile}</span>
+                      <Divider />
+        
+                      <div>writen by: {items.articleAuthor}</div>
+                      
+                      <Divider />
+                      <Button
+                        style={{ width: '100%' }}
+                        label="read article"
+                        severity="primary"
+                        size="medium"
+                        onClick={() => {
+                          navigate('/view-functions-fully', { state: { ...items } });
+                        }}
+                      />
+                      <div style={{ height: '30px' }}></div>
+                    </Card>
+                  </React.Fragment>
+        ))}
 
         <Divider />
       </div>

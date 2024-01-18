@@ -32,7 +32,7 @@ const Navbar = () => {
             {/* <Button label="Rapid.Oracle" text disabled severity='info' /> */}
             <div className="pl-3 mr-2 flex align-items-center justify-content-center">
                 <Link to="/" className="no-underline">
-                <span className='flex pr-2 pt-1 block text-1xl font-bold mb-1 text-blue-600'>ShoutOut.token</span>
+                <span className='flex pr-2 pt-1 block text-1xl font-bold mb-1 text-blue-600'>GuardianQuill</span>
                     {/* Link with no underline */}
                 </Link>
             </div>
@@ -45,20 +45,22 @@ const Navbar = () => {
                 </Button>
 
                 <div style={{height:'5px'}}></div>
-                <Button size='large' text raised style={{width:"100%"}} icon='pi pi-folder-open' onClick={() => {navigate('/documentation'); setVisible(false)}}>
+                {/* onClick={() => {navigate('/documentation'); setVisible(false)}} */}
+                <Button size='large' text raised style={{width:"100%"}} icon='pi pi-folder-open' tooltip="Page still under construction">
                     <span className='flex pl-2 block text-1xl font-bold mb-1"'> Docs </span>
                 </Button>
                 <div style={{height:'5px'}}></div>
-                <Button size='large' text raised style={{width:"100%"}} icon='pi pi-desktop' onClick={() => {navigate('/tutorials'); setVisible(false)}}>
+                {/* onClick={() => {navigate('/tutorials'); setVisible(false)}} */}
+                <Button size='large' text raised style={{width:"100%"}} icon='pi pi-desktop' tooltip="Page still under construction">
                     <span className='flex pl-2 block text-1xl font-bold mb-1"'> Tutorials </span>
                 </Button>
                 <div style={{height:'5px'}}></div>
                 <Button size='large' text raised style={{width:"100%"}} icon='pi pi-plus' onClick={() => {navigate('/list-function'); setVisible(false)}} disabled={!service.connected}>
-                    <span className='flex pl-2 block text-1xl font-bold mb-1"'>{service.connected ? "List Token":"connect to access"}</span>
+                    <span className='flex pl-2 block text-1xl font-bold mb-1"'>{service.connected ? "List article":"connect to access"}</span>
                 </Button>
                 <div style={{height:'5px'}}></div> 
                 <Button size='large' text raised style={{width:"100%"}} icon='pi pi-eye' onClick={() => {navigate('/view-functions-cards'); setVisible(false)}}>
-                    <span className='flex pl-2 block text-1xl font-bold mb-1"'>View Shout outs</span>
+                    <span className='flex pl-2 block text-1xl font-bold mb-1"'>View articles</span>
                 </Button>
                 <div style={{height:'5px'}}></div> 
                 <Button size='large' text raised style={{width:"100%"}} icon='pi pi-wrench' onClick={() => {navigate('/manage-subscriptions'); setVisible(false)}} disabled={!service.connected}>
