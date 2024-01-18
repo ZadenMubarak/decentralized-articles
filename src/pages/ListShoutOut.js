@@ -13,7 +13,7 @@ import OpenAI from "openai";
 import { articleInfo } from "../models/articleInfoModel";
 import { AppStateService } from "../Appstate-sevice/AppState.service";
 
-const openai = new OpenAI({apiKey:"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", dangerouslyAllowBrowser:true});
+const openai = new OpenAI({apiKey:"your_api_key", dangerouslyAllowBrowser:true});
 const service = new AppStateService();
 
 const ListFunctions = () => {
